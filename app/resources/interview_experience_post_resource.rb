@@ -15,6 +15,9 @@ class InterviewExperiencePostResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :student,
+             resource: StudentProfileResource
+
   # Indirect associations
 
 end
