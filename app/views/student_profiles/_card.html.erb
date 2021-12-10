@@ -6,14 +6,10 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Program</dt>
-      <!-- Display program start -->
       <dd><%= student_profile.program %></dd>
-      <!-- Display program end -->
 
       <dt>Graduation year</dt>
-      <!-- Display graduation_year start -->
       <dd><%= student_profile.graduation_year %></dd>
-      <!-- Display graduation_year end -->
 
     </dl>
 
@@ -22,21 +18,17 @@
         <%= link_to_show_or_back student_profile, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link student_profile start -->
       <div class="col">
         <%= link_to edit_student_profile_url(student_profile), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link student_profile end -->
 
-      <!-- Delete link student_profile start -->
       <div class="col">
         <%= link_to student_profile, method: :delete, data: { confirm: "Do you really want to delete this student_profile?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link student_profile end -->
     </div>
   </div>
 

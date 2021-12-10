@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @company.interview_experience_posts.each do |interview_experience_post| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to interview_experience_post, interview_experience_post %>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <% if current_student_profile == interview_experience_post.student %>
           <%= link_to interview_experience_post, method: :delete do %>
             <i class="fas fa-trash-alt"></i>
           <% end %>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="company_interview_experience_posts_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "companies/company_interview_experience_posts_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

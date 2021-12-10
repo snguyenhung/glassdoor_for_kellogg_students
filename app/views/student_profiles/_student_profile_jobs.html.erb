@@ -6,11 +6,9 @@
   <ul class="list-group list-group-flush">
     <% @student_profile.jobs.each do |job| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/jobs/<%= job.id %>">
           <%= job %>
         </a>
-        <!-- Show link end -->
 
       </li>
     <% end %>

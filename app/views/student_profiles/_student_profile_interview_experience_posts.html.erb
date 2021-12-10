@@ -10,18 +10,14 @@
   <ul class="list-group list-group-flush">
     <% @student_profile.interview_experience_posts.each do |interview_experience_post| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <%= link_to interview_experience_post, interview_experience_post %>
-        <!-- Show link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="student_profile_interview_experience_posts_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "student_profiles/student_profile_interview_experience_posts_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

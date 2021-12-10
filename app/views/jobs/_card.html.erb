@@ -6,18 +6,14 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Company</dt>
-      <!-- Display company_id start -->
       <dd>
         <% if @job.company.present? %>
           <%= link_to job.company, job.company %>
         <% end %>
       </dd>
-      <!-- Display company_id end -->
 
       <dt>Name</dt>
-      <!-- Display name start -->
       <dd><%= job.name %></dd>
-      <!-- Display name end -->
 
     </dl>
 
@@ -26,21 +22,17 @@
         <%= link_to_show_or_back job, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link job start -->
       <div class="col">
         <%= link_to edit_job_url(job), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link job end -->
 
-      <!-- Delete link job start -->
       <div class="col">
         <%= link_to job, method: :delete, data: { confirm: "Do you really want to delete this job?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link job end -->
     </div>
   </div>
 

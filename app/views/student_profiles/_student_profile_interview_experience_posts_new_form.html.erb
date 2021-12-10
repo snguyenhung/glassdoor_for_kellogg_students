@@ -1,99 +1,57 @@
-<!-- Form interview_experience_post start -->
 <%= form_with(model: @interview_experience_post, local: true) do |f| %>
-<!-- Form interview_experience_post end -->
 
-  <!-- Label and input for student_id start -->
-  <!-- Input for student_id start -->
   <%= f.hidden_field :student_id, value: @student_profile.id %>
-  <!-- Input for student_id end -->
-  <!-- Label and input for student_id end -->
 
-  <!-- Label and input for anonymous start -->
   <div class="form-group">
     <%= f.label :anonymous %>
 
-    <!-- Input for anonymous start -->
     <%= f.text_field :anonymous, class: "form-control" %>
-    <!-- Input for anonymous end -->
   </div>
-  <!-- Label and input for anonymous end -->
 
-  <!-- Label and input for company_id start -->
   <div class="form-group">
     <%= f.label :company_id %>
 
-    <!-- Input for company_id start -->
     <%= f.collection_select :company_id, Company.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for company_id end -->
   </div>
-  <!-- Label and input for company_id end -->
 
-  <!-- Label and input for job_id start -->
   <div class="form-group">
     <%= f.label :job_id %>
 
-    <!-- Input for job_id start -->
     <%= f.collection_select :job_id, Job.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for job_id end -->
   </div>
-  <!-- Label and input for job_id end -->
 
-  <!-- Label and input for preparation_experience start -->
   <div class="form-group">
     <%= f.label :preparation_experience %>
-    <!-- Input for preparation_experience start -->
     <%= f.text_area :preparation_experience, rows: "3", class: "form-control" %>
-    <!-- Input for preparation_experience end -->
   </div>
-  <!-- Label and input for preparation_experience end -->
 
-  <!-- Label and input for date_of_interview start -->
   <div class="form-group">
     <%= f.label :date_of_interview %>
 
-    <!-- Input for date_of_interview start -->
     <%= f.date_select :date_of_interview, class: "form-control" %>
-    <!-- Input for date_of_interview end -->
   </div>
-  <!-- Label and input for date_of_interview end -->
 
-  <!-- Label and input for resources_used start -->
   <div class="form-group">
     <%= f.label :resources_used %>
-    <!-- Input for resources_used start -->
     <%= f.text_area :resources_used, rows: "3", class: "form-control" %>
-    <!-- Input for resources_used end -->
   </div>
-  <!-- Label and input for resources_used end -->
 
-  <!-- Label and input for interview_experience start -->
   <div class="form-group">
     <%= f.label :interview_experience %>
-    <!-- Input for interview_experience start -->
     <%= f.text_area :interview_experience, rows: "3", class: "form-control" %>
-    <!-- Input for interview_experience end -->
   </div>
-  <!-- Label and input for interview_experience end -->
 
-  <!-- Label and input for offer_status start -->
   <div class="form-group">
     <%= f.label :offer_status %>
 
-    <!-- Input for offer_status start -->
     <%= f.text_field :offer_status, class: "form-control" %>
-    <!-- Input for offer_status end -->
   </div>
-  <!-- Label and input for offer_status end -->
 
-  <!-- Label and input for compensation start -->
   <div class="form-group">
     <%= f.label :compensation %>
 
-    <!-- Input for compensation start -->
     <%= f.text_field :compensation, class: "form-control" %>
-    <!-- Input for compensation end -->
   </div>
-  <!-- Label and input for compensation end -->
 
   <%= f.submit "Create interview experience post", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

@@ -1,12 +1,7 @@
 <% was_validated = interview_experience_post.errors.any? %>
 
 <%= form_with(model: interview_experience_post, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for student_id start -->
-  <!-- Input for "student_id" start -->
   <%= f.hidden_field :student_id, value: current_student_profile.id %>
-  <!-- Input for "student_id" end -->
-  <!-- Label and input for student_id end -->
-  <!-- Label and input for anonymous start -->
   <div class="form-group">
     <% anonymou_class = "form-control" %>
     <% anonymou_was_invalid = interview_experience_post.errors.include?(:anonymou) %>
@@ -20,9 +15,7 @@
     <% end %>
 
     <%= f.label :anonymous %>
-    <!-- Input for anonymous start -->
     <%= f.text_field :anonymous, class: anonymou_class, placeholder: "Enter anonymou" %>
-    <!-- Input for anonymous end -->
     <% if anonymou_was_invalid %>
       <% interview_experience_post.errors.full_messages_for(:anonymou).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -31,8 +24,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for anonymous end -->
-  <!-- Label and input for company_id start -->
   <div class="form-group">
     <% company_class = "form-control" %>
     <% company_was_invalid = interview_experience_post.errors.include?(:company) %>
@@ -46,9 +37,7 @@
     <% end %>
 
     <%= f.label :company_id %>
-    <!-- Input for company_id start -->
     <%= f.collection_select :company_id, Company.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for company_id end -->
     <% if company_was_invalid %>
       <% interview_experience_post.errors.full_messages_for(:company).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -57,8 +46,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for company_id end -->
-  <!-- Label and input for job_id start -->
   <div class="form-group">
     <% job_class = "form-control" %>
     <% job_was_invalid = interview_experience_post.errors.include?(:job) %>
@@ -72,9 +59,7 @@
     <% end %>
 
     <%= f.label :job_id %>
-    <!-- Input for job_id start -->
     <%= f.collection_select :job_id, Job.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for job_id end -->
     <% if job_was_invalid %>
       <% interview_experience_post.errors.full_messages_for(:job).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -83,8 +68,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for job_id end -->
-  <!-- Label and input for preparation_experience start -->
   <div class="form-group">
     <% preparation_experience_class = "form-control" %>
     <% preparation_experience_was_invalid = interview_experience_post.errors.include?(:preparation_experience) %>
@@ -98,9 +81,7 @@
     <% end %>
 
     <%= f.label :preparation_experience %>
-    <!-- Input for preparation_experience start -->
     <%= f.text_area :preparation_experience, class: preparation_experience_class, placeholder: "Enter preparation experience" %>
-    <!-- Input for preparation_experience end -->
     <% if preparation_experience_was_invalid %>
       <% interview_experience_post.errors.full_messages_for(:preparation_experience).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -109,8 +90,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for preparation_experience end -->
-  <!-- Label and input for date_of_interview start -->
   <div class="form-group">
     <% date_of_interview_class = "form-control" %>
     <% date_of_interview_was_invalid = interview_experience_post.errors.include?(:date_of_interview) %>
@@ -124,9 +103,7 @@
     <% end %>
 
     <%= f.label :date_of_interview %>
-    <!-- Input for date_of_interview start -->
     <%= f.date_select :date_of_interview, class: date_of_interview_class, placeholder: "Enter date of interview" %>
-    <!-- Input for date_of_interview end -->
     <% if date_of_interview_was_invalid %>
       <% interview_experience_post.errors.full_messages_for(:date_of_interview).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -135,8 +112,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for date_of_interview end -->
-  <!-- Label and input for resources_used start -->
   <div class="form-group">
     <% resources_used_class = "form-control" %>
     <% resources_used_was_invalid = interview_experience_post.errors.include?(:resources_used) %>
@@ -150,9 +125,7 @@
     <% end %>
 
     <%= f.label :resources_used %>
-    <!-- Input for resources_used start -->
     <%= f.text_area :resources_used, class: resources_used_class, placeholder: "Enter resources used" %>
-    <!-- Input for resources_used end -->
     <% if resources_used_was_invalid %>
       <% interview_experience_post.errors.full_messages_for(:resources_used).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -161,8 +134,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for resources_used end -->
-  <!-- Label and input for interview_experience start -->
   <div class="form-group">
     <% interview_experience_class = "form-control" %>
     <% interview_experience_was_invalid = interview_experience_post.errors.include?(:interview_experience) %>
@@ -176,9 +147,7 @@
     <% end %>
 
     <%= f.label :interview_experience %>
-    <!-- Input for interview_experience start -->
     <%= f.text_area :interview_experience, class: interview_experience_class, placeholder: "Enter interview experience" %>
-    <!-- Input for interview_experience end -->
     <% if interview_experience_was_invalid %>
       <% interview_experience_post.errors.full_messages_for(:interview_experience).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -187,8 +156,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for interview_experience end -->
-  <!-- Label and input for offer_status start -->
   <div class="form-group">
     <% offer_status_class = "form-control" %>
     <% offer_status_was_invalid = interview_experience_post.errors.include?(:offer_status) %>
@@ -202,9 +169,7 @@
     <% end %>
 
     <%= f.label :offer_status %>
-    <!-- Input for offer_status start -->
     <%= f.text_field :offer_status, class: offer_status_class, placeholder: "Enter offer status" %>
-    <!-- Input for offer_status end -->
     <% if offer_status_was_invalid %>
       <% interview_experience_post.errors.full_messages_for(:offer_status).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -213,8 +178,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for offer_status end -->
-  <!-- Label and input for compensation start -->
   <div class="form-group">
     <% compensation_class = "form-control" %>
     <% compensation_was_invalid = interview_experience_post.errors.include?(:compensation) %>
@@ -228,9 +191,7 @@
     <% end %>
 
     <%= f.label :compensation %>
-    <!-- Input for compensation start -->
     <%= f.number_field :compensation, class: compensation_class, placeholder: "Enter compensation" %>
-    <!-- Input for compensation end -->
     <% if compensation_was_invalid %>
       <% interview_experience_post.errors.full_messages_for(:compensation).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -239,6 +200,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for compensation end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

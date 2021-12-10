@@ -1,7 +1,6 @@
 <% was_validated = student_profile.errors.any? %>
 
 <%= form_with(model: student_profile, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for program start -->
   <div class="form-group">
     <% program_class = "form-control" %>
     <% program_was_invalid = student_profile.errors.include?(:program) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :program %>
-    <!-- Input for program start -->
     <%= f.text_field :program, class: program_class, placeholder: "Enter program" %>
-    <!-- Input for program end -->
     <% if program_was_invalid %>
       <% student_profile.errors.full_messages_for(:program).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for program end -->
-  <!-- Label and input for graduation_year start -->
   <div class="form-group">
     <% graduation_year_class = "form-control" %>
     <% graduation_year_was_invalid = student_profile.errors.include?(:graduation_year) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :graduation_year %>
-    <!-- Input for graduation_year start -->
     <%= f.date_select :graduation_year, class: graduation_year_class, placeholder: "Enter graduation year" %>
-    <!-- Input for graduation_year end -->
     <% if graduation_year_was_invalid %>
       <% student_profile.errors.full_messages_for(:graduation_year).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,6 +45,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for graduation_year end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

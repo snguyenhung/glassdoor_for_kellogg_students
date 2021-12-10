@@ -6,66 +6,46 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Student</dt>
-      <!-- Display student_id start -->
       <dd>
         <% if @interview_experience_post.student.present? %>
           <%= link_to interview_experience_post.student, interview_experience_post.student %>
         <% end %>
       </dd>
-      <!-- Display student_id end -->
 
       <dt>Anonymous</dt>
-      <!-- Display anonymous start -->
       <dd><%= interview_experience_post.anonymous %></dd>
-      <!-- Display anonymous end -->
 
       <dt>Company</dt>
-      <!-- Display company_id start -->
       <dd>
         <% if @interview_experience_post.company.present? %>
           <%= link_to interview_experience_post.company, interview_experience_post.company %>
         <% end %>
       </dd>
-      <!-- Display company_id end -->
 
       <dt>Job</dt>
-      <!-- Display job_id start -->
       <dd>
         <% if @interview_experience_post.job.present? %>
           <%= link_to interview_experience_post.job, interview_experience_post.job %>
         <% end %>
       </dd>
-      <!-- Display job_id end -->
 
       <dt>Preparation experience</dt>
-      <!-- Display preparation_experience start -->
       <dd><%= interview_experience_post.preparation_experience %></dd>
-      <!-- Display preparation_experience end -->
 
       <dt>Date of interview</dt>
-      <!-- Display date_of_interview start -->
       <dd><%= interview_experience_post.date_of_interview %></dd>
-      <!-- Display date_of_interview end -->
 
       <dt>Resources used</dt>
-      <!-- Display resources_used start -->
       <dd><%= interview_experience_post.resources_used %></dd>
-      <!-- Display resources_used end -->
 
       <dt>Interview experience</dt>
-      <!-- Display interview_experience start -->
       <dd><%= interview_experience_post.interview_experience %></dd>
-      <!-- Display interview_experience end -->
 
       <dt>Offer status</dt>
-      <!-- Display offer_status start -->
       <dd><%= interview_experience_post.offer_status %></dd>
-      <!-- Display offer_status end -->
 
       <dt>Compensation</dt>
-      <!-- Display compensation start -->
       <dd><%= interview_experience_post.compensation %></dd>
-      <!-- Display compensation end -->
 
     </dl>
 
@@ -74,7 +54,6 @@
         <%= link_to_show_or_back interview_experience_post, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link interview_experience_post start -->
       <div class="col">
         <% if current_student_profile == @interview_experience_post.student %>
           <%= link_to edit_interview_experience_post_url(interview_experience_post), class: "btn btn-block btn-sm btn-outline-secondary" do %>
@@ -82,9 +61,7 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Edit link interview_experience_post end -->
 
-      <!-- Delete link interview_experience_post start -->
       <div class="col">
         <% if current_student_profile == @interview_experience_post.student %>
           <%= link_to interview_experience_post, method: :delete, data: { confirm: "Do you really want to delete this interview_experience_post?" }, class: "btn btn-block btn-outline-secondary" do %>
@@ -92,7 +69,6 @@
           <% end %>
         <% end %>
       </div>
-      <!-- Delete link interview_experience_post end -->
     </div>
   </div>
 
