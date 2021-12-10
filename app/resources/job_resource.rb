@@ -13,4 +13,7 @@ class JobResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :students,
+               resource: StudentProfileResource
+
 end
