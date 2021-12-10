@@ -7,6 +7,10 @@ class StudentProfile < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :jobs,
+             :through => :interview_experience_posts,
+             :source => :job
+
   has_many   :companies,
              :through => :interview_experience_posts,
              :source => :company
