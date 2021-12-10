@@ -2,30 +2,9 @@
 
 <%= form_with(model: interview_experience_post, local: true, novalidate: true, class: "mb-3") do |f| %>
   <!-- Label and input for student_id start -->
-  <div class="form-group">
-    <% student_class = "form-control" %>
-    <% student_was_invalid = interview_experience_post.errors.include?(:student) %>
-
-    <% if was_validated %>
-      <% if student_was_invalid %>
-        <% student_class << " is-invalid" %>
-      <% else %>
-        <% student_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :student_id %>
-    <!-- Input for student_id start -->
-    <%= f.collection_select :student_id, StudentProfile.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for student_id end -->
-    <% if student_was_invalid %>
-      <% interview_experience_post.errors.full_messages_for(:student).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
+  <!-- Input for "student_id" start -->
+  <%= f.hidden_field :student_id, value: current_student_profile.id %>
+  <!-- Input for "student_id" end -->
   <!-- Label and input for student_id end -->
   <!-- Label and input for anonymous start -->
   <div class="form-group">

@@ -3,13 +3,9 @@
 <!-- Form interview_experience_post end -->
 
   <!-- Label and input for student_id start -->
-  <div class="form-group">
-    <%= f.label :student_id %>
-
-    <!-- Input for student_id start -->
-    <%= f.collection_select :student_id, StudentProfile.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for student_id end -->
-  </div>
+  <!-- Input for "student_id" start -->
+  <%= f.hidden_field :student_id, value: current_student_profile.id %>
+  <!-- Input for "student_id" end -->
   <!-- Label and input for student_id end -->
 
   <!-- Label and input for anonymous start -->
