@@ -5,7 +5,6 @@ class InterviewExperiencePostsController < ApplicationController
   before_action :set_interview_experience_post,
                 only: %i[show edit update destroy]
 
-  # GET /interview_experience_posts
   def index
     @q = InterviewExperiencePost.ransack(params[:q])
     @interview_experience_posts = @q.result(distinct: true).includes(
@@ -13,18 +12,14 @@ class InterviewExperiencePostsController < ApplicationController
     ).page(params[:page]).per(10)
   end
 
-  # GET /interview_experience_posts/1
   def show; end
 
-  # GET /interview_experience_posts/new
   def new
     @interview_experience_post = InterviewExperiencePost.new
   end
 
-  # GET /interview_experience_posts/1/edit
   def edit; end
 
-  # POST /interview_experience_posts
   def create
     @interview_experience_post = InterviewExperiencePost.new(interview_experience_post_params)
 
@@ -40,7 +35,6 @@ class InterviewExperiencePostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /interview_experience_posts/1
   def update
     if @interview_experience_post.update(interview_experience_post_params)
       redirect_to @interview_experience_post,
@@ -50,7 +44,6 @@ class InterviewExperiencePostsController < ApplicationController
     end
   end
 
-  # DELETE /interview_experience_posts/1
   def destroy
     @interview_experience_post.destroy
     message = "InterviewExperiencePost was successfully deleted."
@@ -71,12 +64,10 @@ class InterviewExperiencePostsController < ApplicationController
     end
   end
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_interview_experience_post
     @interview_experience_post = InterviewExperiencePost.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def interview_experience_post_params
     params.require(:interview_experience_post).permit(:student_id,
                                                       :anonymous, :company_id, :job_id, :preparation_experience, :date_of_interview, :resources_used, :interview_experience, :offer_status, :compensation)
