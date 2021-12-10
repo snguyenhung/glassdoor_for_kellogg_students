@@ -94,7 +94,7 @@
 
     <%= f.label :job_id %>
     <!-- Input for job_id start -->
-    <%= f.number_field :job_id, class: job_class, placeholder: "Enter job" %>
+    <%= f.collection_select :job_id, Job.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for job_id end -->
     <% if job_was_invalid %>
       <% interview_experience_post.errors.full_messages_for(:job).each do |message| %>
