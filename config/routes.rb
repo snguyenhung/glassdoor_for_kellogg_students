@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :companies
   resources :jobs
   resources :interview_experience_posts
   devise_for :student_profiles
