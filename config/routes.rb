@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "interview_experience_posts#index"
   resources :companies
   resources :jobs
   resources :interview_experience_posts
