@@ -1,6 +1,9 @@
 class Company < ApplicationRecord
   # Direct associations
 
+  has_many   :interview_experience_posts,
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

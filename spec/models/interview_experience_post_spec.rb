@@ -4,6 +4,8 @@ RSpec.describe InterviewExperiencePost, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:company) }
+
     it { should belong_to(:job) }
 
     it { should belong_to(:student) }
