@@ -14,4 +14,6 @@ class StudentProfileResource < ApplicationResource
 
   # Indirect associations
 
+  many_to_many :companies
+
 end
