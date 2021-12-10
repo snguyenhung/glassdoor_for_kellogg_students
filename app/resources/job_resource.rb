@@ -7,6 +7,8 @@ class JobResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :company
+
   has_many   :interview_experience_posts
 
   # Indirect associations
