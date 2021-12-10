@@ -13,7 +13,7 @@ class Api::V1::StudentProfilesController < Api::V1::GraphitiController
     student_profile = StudentProfileResource.build(params)
 
     if student_profile.save
-      render jsonapi: student_profile, status: 201
+      render jsonapi: student_profile, status: :created
     else
       render jsonapi_errors: student_profile
     end
@@ -33,7 +33,7 @@ class Api::V1::StudentProfilesController < Api::V1::GraphitiController
     student_profile = StudentProfileResource.find(params)
 
     if student_profile.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: student_profile
     end

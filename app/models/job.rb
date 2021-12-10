@@ -4,13 +4,13 @@ class Job < ApplicationRecord
   belongs_to :company
 
   has_many   :interview_experience_posts,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :students,
-             :through => :interview_experience_posts,
-             :source => :student
+             through: :interview_experience_posts,
+             source: :student
 
   # Validations
 
@@ -19,5 +19,4 @@ class Job < ApplicationRecord
   def to_s
     company.to_s
   end
-
 end

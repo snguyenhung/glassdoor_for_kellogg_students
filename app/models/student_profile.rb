@@ -1,21 +1,20 @@
 class StudentProfile < ApplicationRecord
-  
   include JwtToken
-# Direct associations
+  # Direct associations
 
   has_many   :interview_experience_posts,
-             :foreign_key => "student_id",
-             :dependent => :destroy
+             foreign_key: "student_id",
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :jobs,
-             :through => :interview_experience_posts,
-             :source => :job
+             through: :interview_experience_posts,
+             source: :job
 
   has_many   :companies,
-             :through => :interview_experience_posts,
-             :source => :company
+             through: :interview_experience_posts,
+             source: :company
 
   # Validations
 

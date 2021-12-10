@@ -23,5 +23,4 @@ class InterviewExperiencePostResource < ApplicationResource
              resource: StudentProfileResource
 
   # Indirect associations
-
 end

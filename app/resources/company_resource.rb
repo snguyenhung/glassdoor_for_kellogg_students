@@ -14,5 +14,4 @@ class CompanyResource < ApplicationResource
 
   many_to_many :students,
                resource: StudentProfileResource
-
 end

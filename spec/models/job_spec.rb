@@ -1,22 +1,16 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Job, type: :model do
-  
-    describe "Direct Associations" do
-
+  describe "Direct Associations" do
     it { should belong_to(:company) }
 
     it { should have_many(:interview_experience_posts) }
+  end
 
-    end
-
-    describe "InDirect Associations" do
-
+  describe "InDirect Associations" do
     it { should have_many(:students) }
+  end
 
-    end
-
-    describe "Validations" do
-
-    end
+  describe "Validations" do
+  end
 end

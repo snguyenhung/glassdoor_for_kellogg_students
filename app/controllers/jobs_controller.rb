@@ -1,10 +1,11 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :set_job, only: %i[show edit update destroy]
 
   # GET /jobs
   def index
     @q = Job.ransack(params[:q])
-    @jobs = @q.result(:distinct => true).includes(:interview_experience_posts, :company, :students).page(params[:page]).per(10)
+    @jobs = @q.result(distinct: true).includes(:interview_experience_posts,
+                                               :company, :students).page(params[:page]).per(10)
   end
 
   # GET /jobs/1
@@ -18,17 +19,16 @@ class JobsController < ApplicationController
   end
 
   # GET /jobs/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /jobs
   def create
     @job = Job.new(job_params)
 
     if @job.save
-      message = 'Job was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Job was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @job, notice: message
       end
@@ -40,7 +40,7 @@ class JobsController < ApplicationController
   # PATCH/PUT /jobs/1
   def update
     if @job.update(job_params)
-      redirect_to @job, notice: 'Job was successfully updated.'
+      redirect_to @job, notice: "Job was successfully updated."
     else
       render :edit
     end
@@ -50,22 +50,22 @@ class JobsController < ApplicationController
   def destroy
     @job.destroy
     message = "Job was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to jobs_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_job
-      @job = Job.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def job_params
-      params.require(:job).permit(:company_id, :name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_job
+    @job = Job.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def job_params
+    params.require(:job).permit(:company_id, :name)
+  end
 end
