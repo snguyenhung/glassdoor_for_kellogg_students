@@ -10,6 +10,8 @@ RSpec.describe StudentProfile, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:companies) }
+
     end
 
     describe "Validations" do

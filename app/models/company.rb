@@ -9,6 +9,10 @@ class Company < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :students,
+             :through => :interview_experience_posts,
+             :source => :student
+
   # Validations
 
   # Scopes

@@ -12,6 +12,8 @@ RSpec.describe Company, type: :model do
 
     describe "InDirect Associations" do
 
+    it { should have_many(:students) }
+
     end
 
     describe "Validations" do
