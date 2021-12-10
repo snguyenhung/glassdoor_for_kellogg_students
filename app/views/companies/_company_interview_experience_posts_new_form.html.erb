@@ -7,7 +7,7 @@
     <%= f.label :student_id %>
 
     <!-- Input for student_id start -->
-    <%= f.text_field :student_id, class: "form-control" %>
+    <%= f.collection_select :student_id, StudentProfile.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for student_id end -->
   </div>
   <!-- Label and input for student_id end -->

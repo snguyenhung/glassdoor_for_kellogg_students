@@ -16,7 +16,7 @@
 
     <%= f.label :student_id %>
     <!-- Input for student_id start -->
-    <%= f.number_field :student_id, class: student_class, placeholder: "Enter student" %>
+    <%= f.collection_select :student_id, StudentProfile.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for student_id end -->
     <% if student_was_invalid %>
       <% interview_experience_post.errors.full_messages_for(:student).each do |message| %>
