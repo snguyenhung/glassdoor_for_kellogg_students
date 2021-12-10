@@ -5,7 +5,7 @@ class InterviewExperiencePostsController < ApplicationController
 
   # GET /interview_experience_posts
   def index
-    @interview_experience_posts = InterviewExperiencePost.all
+    @interview_experience_posts = InterviewExperiencePost.page(params[:page]).per(10)
   end
 
   # GET /interview_experience_posts/1
