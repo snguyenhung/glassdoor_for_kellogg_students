@@ -6,6 +6,8 @@ class CompanyResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :interview_experience_posts
+
   # Indirect associations
 
 end

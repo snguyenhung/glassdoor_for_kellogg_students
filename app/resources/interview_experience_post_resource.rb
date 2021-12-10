@@ -15,6 +15,8 @@ class InterviewExperiencePostResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :company
+
   belongs_to :job
 
   belongs_to :student,
