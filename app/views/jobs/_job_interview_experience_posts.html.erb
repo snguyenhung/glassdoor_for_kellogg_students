@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Interview Experience Posts
+
+    <a data-toggle="collapse" href="#job_interview_experience_posts_new_form">
+      Add interview experience post
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @job.interview_experience_posts.each do |interview_experience_post| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <%= link_to interview_experience_post, interview_experience_post %>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <%= link_to interview_experience_post, method: :delete, data: { confirm: "Do you really want to delete this interview_experience_post" } do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="job_interview_experience_posts_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

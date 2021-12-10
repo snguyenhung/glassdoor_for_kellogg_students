@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Companies
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @student_profile.companies.each do |company| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <a href="/companies/<%= company.id %>">
+          <%= company %>
+        </a>
+        <!-- Show link end -->
+
+      </li>
+    <% end %>
+
+  </ul>
+</div>
