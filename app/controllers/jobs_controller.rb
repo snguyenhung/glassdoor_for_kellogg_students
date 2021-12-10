@@ -8,6 +8,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/1
   def show
+    @interview_experience_post = InterviewExperiencePost.new
   end
 
   # GET /jobs/new
@@ -24,7 +25,12 @@ class JobsController < ApplicationController
     @job = Job.new(job_params)
 
     if @job.save
-      redirect_to @job, notice: 'Job was successfully created.'
+      message = 'Job was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @job, notice: message
+      end
     else
       render :new
     end

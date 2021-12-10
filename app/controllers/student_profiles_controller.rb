@@ -8,6 +8,7 @@ class StudentProfilesController < ApplicationController
 
   # GET /student_profiles/1
   def show
+    @interview_experience_post = InterviewExperiencePost.new
   end
 
   # GET /student_profiles/new

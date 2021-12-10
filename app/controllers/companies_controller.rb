@@ -8,6 +8,8 @@ class CompaniesController < ApplicationController
 
   # GET /companies/1
   def show
+    @job = Job.new
+    @interview_experience_post = InterviewExperiencePost.new
   end
 
   # GET /companies/new

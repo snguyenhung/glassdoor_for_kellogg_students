@@ -24,7 +24,12 @@ class InterviewExperiencePostsController < ApplicationController
     @interview_experience_post = InterviewExperiencePost.new(interview_experience_post_params)
 
     if @interview_experience_post.save
-      redirect_to @interview_experience_post, notice: 'Interview experience post was successfully created.'
+      message = 'InterviewExperiencePost was successfully created.'
+      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referrer, notice: message
+      else
+        redirect_to @interview_experience_post, notice: message
+      end
     else
       render :new
     end
