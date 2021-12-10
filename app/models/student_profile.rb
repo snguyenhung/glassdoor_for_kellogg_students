@@ -1,6 +1,10 @@
 class StudentProfile < ApplicationRecord
   # Direct associations
 
+  has_many   :interview_experience_posts,
+             :foreign_key => "student_id",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

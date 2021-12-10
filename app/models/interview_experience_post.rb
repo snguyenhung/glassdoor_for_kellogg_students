@@ -1,6 +1,9 @@
 class InterviewExperiencePost < ApplicationRecord
   # Direct associations
 
+  belongs_to :student,
+             :class_name => "StudentProfile"
+
   # Indirect associations
 
   # Validations
