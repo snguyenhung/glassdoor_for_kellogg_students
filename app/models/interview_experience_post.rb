@@ -5,6 +5,8 @@ class InterviewExperiencePost < ApplicationRecord
 
   # Validations
 
+  validates :anonymous, :presence => true
+
   validates :compensation, :numericality => { :greater_than => 0 }
 
   validates :student_id, :presence => true
