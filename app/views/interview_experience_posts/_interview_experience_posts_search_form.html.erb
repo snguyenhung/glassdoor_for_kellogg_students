@@ -1,0 +1,141 @@
+<%= search_form_for @q, :class => collapse_search_form, :id => "interview_experience_posts_filters" do |f| %>
+  <p class="lead">Narrow results:</p>
+
+  <div class="form-group">
+    <%= f.label :compensation, "Compensation" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <%= f.text_field :compensation_gteq, :class => "form-control", :placeholder => "Compensation greater than or equal to" %>
+      </div>
+      <div class='col-md-6'>
+        <%= f.text_field :compensation_lteq, :class => "form-control", :placeholder => "Compensation less than or equal to" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :offer_status_cont, "Offer status contains" %>
+    <%= f.text_field :offer_status_cont, :class => "form-control", :placeholder => "Offer status contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :interview_experience_cont, "Interview experience contains" %>
+    <%= f.text_field :interview_experience_cont, :class => "form-control", :placeholder => "Interview experience contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :resources_used_cont, "Resources used contains" %>
+    <%= f.text_field :resources_used_cont, :class => "form-control", :placeholder => "Resources used contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :date_of_interview, "Date of interview" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='date_of_interviewgteqPicker' data-target-input="nearest">
+          <%= f.text_field :date_of_interview_gteq, :class => "form-control datetimepicker-input", :placeholder => "Date of interview greater than or equal to", :data => {:target => '#date_of_interviewgteqPicker'} %>
+          <div class="input-group-append" data-target='#date_of_interviewgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='date_of_interviewlteqPicker' data-target-input="nearest">
+          <%= f.text_field :date_of_interview_lteq, :class => "form-control datetimepicker-input", :placeholder => "Date of interview less than or equal to", :data => {:target => '#date_of_interviewlteqPicker'} %>
+          <div class="input-group-append" data-target='#date_of_interviewlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#date_of_interviewgteqPicker').datetimepicker({
+              format: 'MM/DD/YYYY'
+          });
+          $('#date_of_interviewlteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'MM/DD/YYYY'
+          });
+          $('#date_of_interviewgteqPicker').on("dp.change", function (e) {
+              $('#date_of_interviewlteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#date_of_interviewlteqPicker').on("dp.change", function (e) {
+              $('#date_of_interviewgteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+  <div class="form-group">
+    <%= f.label :preparation_experience_cont, "Preparation experience contains" %>
+    <%= f.text_field :preparation_experience_cont, :class => "form-control", :placeholder => "Preparation experience contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :anonymous_cont, "Anonymous contains" %>
+    <%= f.text_field :anonymous_cont, :class => "form-control", :placeholder => "Anonymous contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :created_at, "Created at" %>
+    <div class="row">
+      <div class='col-md-6 mb-1'>
+        <div class='input-group date' id='created_atgteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_gteq, :class => "form-control datetimepicker-input", :placeholder => "Created at greater than or equal to", :data => {:target => '#created_atgteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atgteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+
+      <div class='col-md-6'>
+        <div class='input-group date' id='created_atlteqPicker' data-target-input="nearest">
+          <%= f.text_field :created_at_lteq, :class => "form-control datetimepicker-input", :placeholder => "Created at less than or equal to", :data => {:target => '#created_atlteqPicker'} %>
+          <div class="input-group-append" data-target='#created_atlteqPicker' data-toggle="datetimepicker">
+            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+      $(function () {
+          $('#created_atgteqPicker').datetimepicker({
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atlteqPicker').datetimepicker({
+              useCurrent: false,
+              format: 'YYYY-MM-DD hh:mm:SS'
+          });
+          $('#created_atgteqPicker').on("dp.change", function (e) {
+              $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+          });
+          $('#created_atlteqPicker').on("dp.change", function (e) {
+              $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+          });
+      });
+  </script>
+
+
+  <div class="form-group">
+    <%= f.label :student_email_cont, "Student email contains" %>
+    <%= f.text_field :student_email_cont, :class => "form-control", :placeholder => "Student email contains" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :company_name_cont, "Company name contains" %>
+    <%= f.text_field :company_name_cont, :class => "form-control", :placeholder => "Company name contains" %>
+  </div>
+
+
+  <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+  <a href="/interview_experience_posts" class="btn btn-outline-secondary btn-block mb-1">Clear filters</a>
+
+<% end %>
+
+<a class="btn btn-outline-secondary btn-block mb-1" data-toggle="collapse" href="#interview_experience_posts_filters">
+  Show filters
+</a>

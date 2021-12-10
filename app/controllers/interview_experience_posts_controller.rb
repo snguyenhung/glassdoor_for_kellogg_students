@@ -5,7 +5,8 @@ class InterviewExperiencePostsController < ApplicationController
 
   # GET /interview_experience_posts
   def index
-    @interview_experience_posts = InterviewExperiencePost.page(params[:page]).per(10)
+    @q = InterviewExperiencePost.ransack(params[:q])
+    @interview_experience_posts = @q.result(:distinct => true).includes(:student, :job, :company).page(params[:page]).per(10)
   end
 
   # GET /interview_experience_posts/1
