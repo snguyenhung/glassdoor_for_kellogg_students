@@ -1,6 +1,8 @@
 class InterviewExperiencePost < ApplicationRecord
   # Direct associations
 
+  belongs_to :job
+
   belongs_to :student,
              :class_name => "StudentProfile"
 
