@@ -5,6 +5,8 @@ class InterviewExperiencePost < ApplicationRecord
 
   # Validations
 
+  validates :compensation, :numericality => { :greater_than => 0 }
+
   validates :student_id, :presence => true
 
   # Scopes
