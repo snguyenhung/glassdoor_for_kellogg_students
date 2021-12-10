@@ -1,4 +1,6 @@
 class InterviewExperiencePostsController < ApplicationController
+  before_action :current_student_profile_must_be_interview_experience_post_student, only: [:edit, :update, :destroy] 
+
   before_action :set_interview_experience_post, only: [:show, :edit, :update, :destroy]
 
   # GET /interview_experience_posts
@@ -57,6 +59,14 @@ class InterviewExperiencePostsController < ApplicationController
 
 
   private
+
+  def current_student_profile_must_be_interview_experience_post_student
+    set_interview_experience_post
+    unless current_student_profile == @interview_experience_post.student
+      redirect_back fallback_location: root_path, alert: "You are not authorized for that."
+    end
+  end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_interview_experience_post
       @interview_experience_post = InterviewExperiencePost.find(params[:id])

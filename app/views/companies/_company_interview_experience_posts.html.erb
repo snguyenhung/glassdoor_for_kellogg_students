@@ -15,8 +15,10 @@
         <!-- Show link end -->
 
         <!-- Delete link start -->
-        <%= link_to interview_experience_post, method: :delete, data: { confirm: "Do you really want to delete this interview_experience_post" } do %>
-          <i class="fas fa-trash-alt"></i>
+        <% if current_student_profile == interview_experience_post.student %>
+          <%= link_to interview_experience_post, method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
         <% end %>
         <!-- Delete link end -->
 
