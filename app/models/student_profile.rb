@@ -1,5 +1,7 @@
 class StudentProfile < ApplicationRecord
-  # Direct associations
+  
+  include JwtToken
+# Direct associations
 
   has_many   :interview_experience_posts,
              :foreign_key => "student_id",
