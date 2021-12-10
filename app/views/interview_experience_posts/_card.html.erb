@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Student</dt>
       <!-- Display student_id start -->
-      <dd><%= interview_experience_post.student_id %></dd>
+      <dd>
+        <% if @interview_experience_post.student.present? %>
+          <%= link_to interview_experience_post.student, interview_experience_post.student %>
+        <% end %>
+      </dd>
       <!-- Display student_id end -->
 
       <dt>Anonymous</dt>
@@ -17,12 +21,20 @@
 
       <dt>Company</dt>
       <!-- Display company_id start -->
-      <dd><%= interview_experience_post.company_id %></dd>
+      <dd>
+        <% if @interview_experience_post.company.present? %>
+          <%= link_to interview_experience_post.company, interview_experience_post.company %>
+        <% end %>
+      </dd>
       <!-- Display company_id end -->
 
       <dt>Job</dt>
       <!-- Display job_id start -->
-      <dd><%= interview_experience_post.job_id %></dd>
+      <dd>
+        <% if @interview_experience_post.job.present? %>
+          <%= link_to interview_experience_post.job, interview_experience_post.job %>
+        <% end %>
+      </dd>
       <!-- Display job_id end -->
 
       <dt>Preparation experience</dt>

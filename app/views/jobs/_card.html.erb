@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Company</dt>
       <!-- Display company_id start -->
-      <dd><%= job.company_id %></dd>
+      <dd>
+        <% if @job.company.present? %>
+          <%= link_to job.company, job.company %>
+        <% end %>
+      </dd>
       <!-- Display company_id end -->
 
       <dt>Name</dt>
